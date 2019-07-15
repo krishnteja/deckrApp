@@ -5,7 +5,10 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 using System;
+using System.Configuration;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -15,8 +18,36 @@ namespace DeCKR_WebAPI
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            string apiKey = ConfigurationManager.AppSettings["sendgrid-api"];
+            //const string sandBox = "sandbox5c2ed57ac7b94f0ea5d372f3194b026c.mailgun.org";
+            //byte[] apiKeyAuth = Encoding.ASCII.GetBytes($"api:{apiKey}");
+            //var httpClient = new HttpClient { BaseAddress = new Uri("https://api.mailgun.net/v3/") };
+            //httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic",
+            //    Convert.ToBase64String(apiKeyAuth));
+
+            //var form = new Dictionary<string, string>
+            //{
+            //    ["from"] = "postmaster@sandbox5c2ed57ac7b94f0ea5d372f3194b026c.mailgun.org",
+            //    ["to"] = message.Destination,
+            //    ["subject"] = message.Subject,
+            //    ["text"] = message.Body
+            //};
+
+            //HttpResponseMessage response =
+            //    httpClient.PostAsync(sandBox + "/messages", new FormUrlEncodedContent(form)).Result;
+            //return Task.FromResult((int)response.StatusCode);
+            var client = new SendGridClient(apiKey);
+            var msg = new SendGridMessage()
+            {
+                From = new EmailAddress("deckr@team.com", "DeCKR Team"),
+                Subject = message.Subject,
+                PlainTextContent = message.Body,
+                HtmlContent = "<strong>" + message.Body + "</strong>"
+            };
+
+            msg.AddTo(new EmailAddress(message.Destination, "DeCKR User"));
+            var response = client.SendEmailAsync(msg).Result;
+            return Task.FromResult((int)response.StatusCode);
         }
     }
 
@@ -68,13 +99,15 @@ namespace DeCKR_WebAPI
             //manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<ApplicationUser>
             //{
             //    MessageFormat = "Your security code is {0}"
-            //});
-            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<ApplicationUser>
-            {
-                Subject = "Security Code",
-                BodyFormat = "Your security code is {0}"
-            });
+           // //});
+           // manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<ApplicationUser>
+           // {
+           //     Subject = "Security Code",
+           //     BodyFormat = "Your security code is {0}"
+           // });
+
            manager.EmailService = new EmailService();
+
             //manager.SmsService = new SmsService();
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)

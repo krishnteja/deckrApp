@@ -72,4 +72,17 @@ namespace DeCKR_WebAPI.Models
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
+
+    public class ForgotPasswordViewModel
+    {
+        public string Email { get; set; }
+    }
+
+    public class ResetPasswordViewModel
+    {
+        public string Code { get; set; }
+        public string ConfirmPassword { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+    }
 }

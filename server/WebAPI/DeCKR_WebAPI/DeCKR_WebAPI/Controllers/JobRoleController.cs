@@ -25,7 +25,7 @@ namespace DeCKR_WebAPI.Controllers
         /// Gets all Job Roles list
         /// </summary>
         /// <returns>Job Roles List</returns>
-        [Authorize]
+        [AllowAnonymous]
         public List<JobRoleModel> Get()
         {
             return model.GetJobRoles().ToList();

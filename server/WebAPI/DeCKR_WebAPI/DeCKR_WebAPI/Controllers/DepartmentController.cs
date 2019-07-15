@@ -24,7 +24,7 @@ namespace DeCKR_WebAPI.Controllers
         /// Gets all departments list
         /// </summary>
         /// <returns></returns>
-        [Authorize]
+        [AllowAnonymous]
         public List<DepartmentModel> Get()
         {
             return model.GetDepartments().ToList();

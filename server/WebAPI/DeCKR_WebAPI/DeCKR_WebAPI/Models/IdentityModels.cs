@@ -1,8 +1,16 @@
 ﻿using DeCKR_WebAPI.Maps;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using SendGrid;
+using SendGrid.Helpers.Mail;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 
 /*****************************************************
@@ -48,4 +56,6 @@ namespace DeCKR_WebAPI.Models
             modelBuilder.Configurations.Add(new UserMap());
         }
     }
+
+
 }
