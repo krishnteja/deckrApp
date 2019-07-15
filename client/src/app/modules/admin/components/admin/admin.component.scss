@@ -1,0 +1,14 @@
+@import "../../../../styles/components/item_container.scss";
+@import "../../../../styles/layout/layout.scss";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+::ng-deep mat-card.admin-destinations {
+	@include item_container(2 * $std-padding);
+	max-width: $content-box-max-width;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.logout > button {
+	@extend .mat-button-primary !optional;
+}

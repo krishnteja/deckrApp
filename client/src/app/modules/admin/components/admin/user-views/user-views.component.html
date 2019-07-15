@@ -1,3 +1,31 @@
-<p>
-  user-views works!
-</p>
+<h1 class="page-title">User View Settings</h1>
+
+
+<mat-card>
+	<div class="modules-header">
+		<p class="description">Select which features are available for each module in your users' experience</p>
+		<mat-form-field class="select">
+			<mat-label>User Name</mat-label>
+			<mat-select>
+				<mat-option *ngFor="let user of allUsers" [value]="user.name">
+				{{ user.name }}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<div class="modules">
+		<mat-card class="module" *ngFor="let module of userSettings">
+			<h2>{{ module.moduleName }} module</h2>
+			<div *ngFor="let setting of module.settings">
+				<mat-checkbox  
+					[(ngModel)]="setting.settingValue"
+				>
+						{{ setting.settingName }}
+				</mat-checkbox>
+				<p>
+					{{ setting.settingDescription }}
+				</p>
+			</div>
+		</mat-card>
+	</div>	
+</mat-card>	

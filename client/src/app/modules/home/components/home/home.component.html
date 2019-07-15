@@ -1,34 +1,61 @@
 <h1 class="page-title">Welcome, {{ user.name }}!</h1>
 
-<div class="home-container">
+<mat-card class="destinations home-destinations">
+	<app-destination-button
+		[route]="'admin/trainings'"
+	>
+		Required Trainings
+	</app-destination-button>
 
-	<div class="home-section">
-		<h2>Your Required Contracts</h2>
+	<app-destination-button
+		[route]="'admin/securitygroups'"
+	>
+		Security Groups
+	</app-destination-button>
 
-		<mat-card>
-			<app-contracts-summary
-				[contracts]="contracts"
-			></app-contracts-summary>
-		</mat-card>
+	<app-destination-button
+		[route]="'admin/contracts'"
+	>
+		View & Sign Contracts
+	</app-destination-button>
+
+	<app-destination-button
+		class="logout"
+		(click)="logout()"
+	>
+		Logout
+	</app-destination-button>
+</mat-card>
+
+<mat-card class="summary">
+	<div class="home-container">
+		<div class="home-section">
+			<h2>Your Required Contracts</h2>
+
+			<mat-card>
+				<app-contracts-summary
+					[contracts]="contracts"
+				></app-contracts-summary>
+			</mat-card>
+		</div>
+
+		<div class="home-section">
+			<h2>Your Required Trainings</h2>
+
+			<mat-card>
+				<app-trainings-summary
+					[trainings]="trainings"
+				></app-trainings-summary>
+			</mat-card>
+		</div>
+
+		<div class="home-section">
+			<h2>Your Security Groups</h2>
+			<mat-card class="security-groups-card">
+				<app-security-groups-summary
+					[securityGroups]="securityGroups"
+				></app-security-groups-summary>
+			</mat-card>	
+		</div>	
 	</div>
-
-	<div class="home-section">
-		<h2>Your Required Trainings</h2>
-
-		<mat-card>
-			<app-trainings-summary
-				[trainings]="trainings"
-			></app-trainings-summary>
-		</mat-card>
-	</div>
-
-	<div class="home-section">
-		<h2>Your Security Groups</h2>
-		<mat-card class="security-groups-card">
-			<app-security-groups-summary
-				[securityGroups]="securityGroups"
-			></app-security-groups-summary>
-		</mat-card>	
-	</div>	
-
-</div>
+</mat-card>

@@ -15,10 +15,11 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { WebApiService } from './shared/services/web-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminModule } from './modules/admin/admin.module';
+import { DestinationButtonComponent } from './shared/components/destination-button/destination-button.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+	AppComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,13 @@
+@import '../../../../../styles/layout/layout.scss';
+
+::ng-deep mat-tab-body{
+	padding: $std-padding;
+}
+
+app-user-progress{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-row-gap: 20px;
+	grid-auto-rows: main-content;
+	grid-column-gap: 20px;
+}

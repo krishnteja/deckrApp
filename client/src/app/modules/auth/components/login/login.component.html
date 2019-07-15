@@ -1,5 +1,8 @@
 <h1 class="page-title">Login</h1>
 
+<button class="login-as-admin" (click)="loginAdmin()">Login as Admin</button>
+<button class="login-as-user" (click)="loginUser()">Login as User</button>
+
 <section>
 	<form
 		fxLayout="column"
@@ -25,11 +28,10 @@
 		<mat-hint>Please enter your password.</mat-hint>
 		<mat-error>Missing password.</mat-error>
 		</mat-form-field>
-		<button *ngIf="!(isLoading$ | async)" type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Submit</button>
+		<button class="submit" *ngIf="!(isLoading$ | async)" type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Submit</button>
 		<mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
 
-		<button (click)="loginAdmin()">Admin</button>
-		<button (click)="loginUser()">User</button>
+	
 
 	</form>
 </section>

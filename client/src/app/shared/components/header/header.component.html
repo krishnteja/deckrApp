@@ -1,42 +1,91 @@
 <mat-toolbar 
 	color="primary"
-	[ngClass]="{'expanded': activeRoute === '' || activeRoute === 'login' || activeRoute === 'register' }"	
+	[ngClass]="{'expanded': activeRoute === '' || activeRoute === '/' || activeRoute === '/login' || activeRoute === '/register' }"	
 >
     <div>
-      <a class="logo" routerLink="/home">
+      <a class="logo" *ngIf="!isAdmin" routerLink="/home">
 		DeCKR
-		{{ loggedInUser }}
-		{{ isAdmin }}
-		
+	  </a>
+	  <a class="logo" *ngIf="isAdmin" routerLink="/admin">
+		DeCKR
+		<span> Admin</span>
       </a>
     </div>
-	<div 
-		class="navlinks-container"
-	>
+	<div class="navlinks-container">
       <ul class="navigation-items">
         <li *ngIf="!isAuth">
-          <a (click)="setActiveRoute('register')" routerLink="/register" [ngClass]="{'active': activeRoute === 'register'}">Register</a>
+			<a 
+				routerLink="/register" 
+				[ngClass]="{'active': activeRoute === '/register'}"
+			>
+				Register
+			</a>
         </li>
         <li *ngIf="!isAuth">
-          <a (click)="setActiveRoute('login')" [ngClass]="{'active': activeRoute === 'login'}" routerLink="/login">Login</a>
+			<a 
+				[ngClass]="{'active': activeRoute === '/login'}" 
+				routerLink="/login"
+			>
+				Login
+			</a>
         </li>
         <li *ngIf="isAuth && !isAdmin">
-          <a (click)="setActiveRoute('training')" [ngClass]="{'active': activeRoute === 'training'}" routerLink="/training">Training</a>
+			<a 
+				[ngClass]="{'active': activeRoute === '/training'}" 
+				routerLink="/training"
+			>
+				Training
+			</a>
         </li>
         <li *ngIf="isAuth && !isAdmin">
-          <a (click)="setActiveRoute('securitygroups')" [ngClass]="{'active': activeRoute === 'securitygroups'}" routerLink="/securitygroups">Groups</a>
+			<a 
+				[ngClass]="{'active': activeRoute === '/securitygroups'}" 
+				routerLink="/securitygroups"
+			>
+				Groups
+			</a>
         </li>
         <li *ngIf="isAuth && !isAdmin">
-          <a (click)="setActiveRoute('contracts')" [ngClass]="{'active': activeRoute === 'contracts'}" routerLink="/contracts">Contracts</a>
-        </li>
-        <li *ngIf="isAuth && !isAdmin">
-          <a style="cursor: pointer" (click)="logout()">Logout</a>
-        </li>
+			<a 
+				[ngClass]="{'active': activeRoute === '/contracts'}" 
+				routerLink="/contracts"
+			>
+				Contracts
+			</a>
+		</li>
+		<li *ngIf="isAdmin">
+			<a 
+				[ngClass]="{'active': activeRoute === '/admin/progress'}" 
+				routerLink="/admin/progress"
+			>
+				Progress
+			</a>
+		</li>
+		<li *ngIf="isAdmin">
+			<a 
+				[ngClass]="{'active': activeRoute === '/admin/userviews'}" 
+				routerLink="/admin/userviews"
+			>
+				Settings
+			</a>
+		</li>
+        <li *ngIf="isAuth">
+			<a 
+				style="cursor: pointer" 
+				(click)="logout()"
+			>
+				Logout
+			</a>
+		</li>
+	
       </ul>
     </div>
     <div class="menu">
-      <button mat-icon-button (click)="onToggleSidenav()">
-        <mat-icon>menu</mat-icon>
-      </button>
+		<button 
+			mat-icon-button 
+			(click)="onToggleSidenav()"
+		>
+			<mat-icon>menu</mat-icon>
+		</button>
     </div>
-  </mat-toolbar>
+</mat-toolbar>
