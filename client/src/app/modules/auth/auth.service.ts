@@ -20,10 +20,12 @@ export class AuthService {
 	  ) { 
 		this.loggedInUserChanged.subscribe((user: User) => {
 			this.loggedInUser = user;
+			console.log(user);
 			if (user && user !== null){
 				this.isAuthChanged.next(true);
 			} else {
 				this.isAuthChanged.next(false);
+				this.isAdminChanged.next(false);
 			}	
 			this.isAdminChanged.next(this.getIsAdmin());
 		});

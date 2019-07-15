@@ -5,11 +5,16 @@ mat-nav-list{
 a {
 	text-decoration: none;
 	color: white;
-  }
+}
+
+a.active{
+	background-color: #DDD;
+}
 
 a:hover, a:active {
 	color: lightgray;
 }
+
 mat-icon{
 	margin-right: 10px;
 }
@@ -22,6 +27,14 @@ a.logo{
 	margin-top: 10px;
 	font-size: 1.7em;
 	font-weight: bold;
+}
+
+a.username{
+	display: inline-block;
+	color: gray;
+	font-size: 1.2em;
+	width: 100%;
+	text-align: center;
 }
 
 ::ng-deep .mat-list-item-content{

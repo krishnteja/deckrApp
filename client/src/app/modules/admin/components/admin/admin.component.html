@@ -1,3 +1,22 @@
-<p>
-  admin works!
-</p>
+<h1 class="page-title">Choose Your Destination:</h1>
+
+<mat-card class="destinations admin-destinations">
+	<app-destination-button
+		[route]="'admin/progress'"
+	>
+		Progress Reports
+	</app-destination-button>
+
+	<app-destination-button
+		[route]="'admin/userviews'"
+	>
+		User View Settings
+	</app-destination-button>
+
+	<app-destination-button
+		class="logout"
+		(click)="logout()"
+	>
+		Logout
+	</app-destination-button>
+</mat-card>

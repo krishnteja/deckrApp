@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material';
 
 @Component({
   selector: 'app-progress',
@@ -11,5 +12,4 @@ export class ProgressComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

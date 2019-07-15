@@ -4,9 +4,21 @@
 	height: 150px;
 }
 
+.expanded .navlinks-container{
+	margin-top: 85px;
+}
+
+.logo > span {
+	font-size: 0.8em;
+}
+
 a{
 	color: inherit;
 	text-decoration: none;
+	
+	&.active{
+		text-decoration: underline;
+	}
 }
 
 mat-toolbar{
@@ -16,8 +28,9 @@ mat-toolbar{
 
 .navlinks-container{
 	flex-grow: 2;
-	padding-left: 30px;
-	padding-right: 10%;
+	padding-left: 20px;
+	padding-right: 5%;
+	max-width: calc(100% - 100px);
 }
 
 .navigation-items{

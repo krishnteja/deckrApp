@@ -1,9 +1,21 @@
-<mat-sidenav-container>
+<mat-sidenav-container >
   <mat-sidenav #sidenav role="navigation">
-    <app-sidenav-list (closeSidenav)="sidenav.close()"></app-sidenav-list>
+	<app-sidenav-list 
+		(closeSidenav)="sidenav.close()"
+		[isAuth]="isAuth"
+		[isAdmin]="isAdmin"
+		[loggedInUser]="loggedInUser"
+		[activeRoute]="activeRoute"></app-sidenav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+	<app-header 
+		(sidenavToggle)="sidenav.toggle()"
+		[isAuth]="isAuth"
+		[isAdmin]="isAdmin"
+		[loggedInUser]="loggedInUser"
+		[activeRoute]="activeRoute"
+	>
+	</app-header>
     <main>
       <div class="loading-container" *ngIf="showLoadingIndicator">
         <mat-spinner></mat-spinner>

@@ -1,0 +1,22 @@
+:host {
+	display: flex;
+	flex-direction: column;
+}
+
+mat-card{
+	margin-bottom: 25px;
+}
+
+table{
+	width: 100%;
+}
+
+h1, h2 {
+	width: 100%;
+	text-align: center;
+}
+
+.mat-row:hover{
+	cursor: pointer;
+	background-color: #EEE;
+}

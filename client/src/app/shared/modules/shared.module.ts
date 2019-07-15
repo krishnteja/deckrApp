@@ -6,7 +6,9 @@ import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { SidenavListComponent } from '../components/sidenav-list/sidenav-list.component';
 import { CommonModule } from '@angular/common';
-
+import { DestinationButtonComponent } from '../components/destination-button/destination-button.component';
+import { ProgressIndicatorComponent } from '../components/progress-indicator/progress-indicator.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   imports: [
@@ -14,12 +16,15 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     MaterialModule,
     RouterModule,
-    CommonModule
+	CommonModule,
+	NgxChartsModule
   ],
   declarations: [
     HeaderComponent,
     FooterComponent,
-    SidenavListComponent 
+	SidenavListComponent,
+	DestinationButtonComponent,
+	ProgressIndicatorComponent
   ],
   providers: [],
   exports: [
@@ -30,7 +35,9 @@ import { CommonModule } from '@angular/common';
     HeaderComponent,
     FooterComponent,
     SidenavListComponent ,
-    CommonModule
+	CommonModule,
+	DestinationButtonComponent,
+	ProgressIndicatorComponent
   ]
 })
 export class SharedModule {}

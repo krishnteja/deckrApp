@@ -6,22 +6,18 @@ import { HomeComponent } from './components/home/home.component';
 import { ContractsSummaryComponent } from './components/home/contracts-summary/contracts-summary.component';
 import { TrainingsSummaryComponent } from './components/home/trainings-summary/trainings-summary.component';
 import { SecurityGroupsSummaryComponent } from './components/home/security-groups-summary/security-groups-summary.component';
-import { ProgressIndicatorComponent } from './components/home/progress-indicator/progress-indicator.component';
-import {NgxChartsModule} from '@swimlane/ngx-charts';
 
 @NgModule({
 	imports: [
 		CommonModule,
 		SharedModule,
-		HomeRoutingModule,
-		NgxChartsModule
+		HomeRoutingModule
 	],
 	declarations: [
 		HomeComponent,
 		ContractsSummaryComponent,
 		TrainingsSummaryComponent,
-		SecurityGroupsSummaryComponent,
-		ProgressIndicatorComponent
+		SecurityGroupsSummaryComponent
 	]
 })
 export class HomeModule {
