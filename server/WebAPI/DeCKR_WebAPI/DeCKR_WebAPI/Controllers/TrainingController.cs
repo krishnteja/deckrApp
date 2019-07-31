@@ -16,7 +16,7 @@ namespace DeCKR_WebAPI.Controllers
     /// <summary>
     /// Training Controller class
     /// </summary>
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+   // [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     [RoutePrefix("api/training")]
     public class TrainingController : ApiController
     {

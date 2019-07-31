@@ -17,7 +17,7 @@ namespace DeCKR_WebAPI.Controllers
     /// <summary>
     /// user controller class
     /// </summary>
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+   // [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     [RoutePrefix("api/user")]
      public class UserController : ApiController
     {

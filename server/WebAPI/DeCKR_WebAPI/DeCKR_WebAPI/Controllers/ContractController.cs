@@ -15,7 +15,7 @@ namespace DeCKR_WebAPI.Controllers
     /// <summary>
     /// Contract Controller Class
     /// </summary>
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+   // [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     [RoutePrefix("api/contract")]
    public class ContractController : ApiController
     {

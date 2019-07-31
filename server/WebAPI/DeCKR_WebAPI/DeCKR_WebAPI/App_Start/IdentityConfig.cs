@@ -11,9 +11,11 @@ using System;
 using System.Configuration;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Web.Http.Cors;
 
 namespace DeCKR_WebAPI
 {
+   // [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class EmailService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)

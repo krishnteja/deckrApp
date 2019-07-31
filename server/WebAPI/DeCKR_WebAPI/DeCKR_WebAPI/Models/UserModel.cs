@@ -37,7 +37,7 @@ namespace DeCKR_WebAPI.Models
         /// <summary>
         /// type of the user
         /// </summary>
-       // public string UserType { get; set; }
+       public string UserType { get; set; }
 
         /// <summary>
         /// Job Role id of the user

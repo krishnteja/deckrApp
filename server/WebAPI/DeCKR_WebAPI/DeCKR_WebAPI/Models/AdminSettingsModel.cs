@@ -5,6 +5,8 @@
 * Instructor: Mudasser Wyne                          *
 ******************************************************/
 
+using System.Collections.Generic;
+
 namespace DeCKR_WebAPI.Models
 {
     /// <summary>
@@ -36,6 +38,38 @@ namespace DeCKR_WebAPI.Models
         /// ModuleID
         /// </summary>
         public int ModuleID { get; set; }
+    }
+
+    public class SettingsModel
+    {
+        public int SettingID { get; set; }
+
+        /// <summary>
+        /// Setting Value
+        /// </summary>
+        public int SettingValue { get; set; }
+
+        /// <summary>
+        /// ModuleID
+        /// </summary>
+        public int ModuleID { get; set; }
+
+    }
+
+
+    public class UserSettingsRequest
+    {
+        public List<SettingsModel> userSettings { get; set; }
+
+        public int EmployeeID { get; set; }
+    }
+
+
+    public class DepartmentSettingsRequest
+    {
+        public List<SettingsModel> departmentSettings { get; set; }
+
+        public int DepartmentID { get; set; }
     }
 
     /// <summary>

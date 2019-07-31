@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 
 namespace DeCKR_WebAPI.Providers
 {
+    // [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {
         private readonly string _publicClientId;
@@ -33,6 +34,7 @@ namespace DeCKR_WebAPI.Providers
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
+           // context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
             ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
@@ -90,11 +92,17 @@ namespace DeCKR_WebAPI.Providers
             return Task.FromResult<object>(null);
         }
 
+        private static DomainModel model = new DomainModel();
+
         public static AuthenticationProperties CreateProperties(string userName)
         {
+           string employeeID= Convert.ToString(model.GetUserByUserName(userName).EmployeeID);
+            string userType = Convert.ToString(model.GetUserByUserName(userName).UserType);
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "userName", userName }
+                { "userName", userName },
+                { "employeeID", employeeID },
+                {"userType", userType }
             };
             return new AuthenticationProperties(data);
         }

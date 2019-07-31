@@ -9,27 +9,13 @@ using System.Runtime.Remoting.Contexts;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace DeCKR_WebAPI.Controllers
 {
-
-    //public class BaseController : ApiController
-    //{
-    //    protected Context db = new Context();
-
-    //    protected override void Dispose(bool disposing)
-    //    {
-    //        if (disposing)
-    //        {
-    //            db.Dispose();
-    //        }
-
-    //        base.Dispose(disposing);
-    //    }
-    //}
-
-    [Authorize]
+  
     [RoutePrefix("api/Account")]
+   // [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class AccountController : ApiController
     {
        
@@ -64,6 +50,7 @@ namespace DeCKR_WebAPI.Controllers
 
         // POST api/Account/Logout
         [Route("Logout")]
+        [Authorize]
         public IHttpActionResult Logout()
         {
             Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
@@ -71,6 +58,7 @@ namespace DeCKR_WebAPI.Controllers
         }
 
         [Route("ChangePassword")]
+        [Authorize]
         public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)
         {
             if (!ModelState.IsValid)
@@ -91,6 +79,7 @@ namespace DeCKR_WebAPI.Controllers
 
         // POST api/Account/SetPassword
         [Route("SetPassword")]
+        [Authorize]
         public async Task<IHttpActionResult> SetPassword(SetPasswordBindingModel model)
         {
             if (!ModelState.IsValid)
@@ -113,6 +102,7 @@ namespace DeCKR_WebAPI.Controllers
         /// </summary>
         DomainModel domainModel = new DomainModel();
 
+        [HttpPost]
         [AllowAnonymous]
         [Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)

@@ -13,7 +13,7 @@ using System.Web.Http.Cors;
 
 namespace DeCKR_WebAPI.Controllers
 {
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+   // [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class ModuleController : ApiController
     {
         DomainModel model = new DomainModel();

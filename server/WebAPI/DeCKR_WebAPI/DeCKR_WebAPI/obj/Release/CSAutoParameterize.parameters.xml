@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="DBConnectionString-Web.config Connection String" description="DBConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=deckr.database.windows.net;Initial Catalog=DeCKR_Database;Persist Security Info=True;User ID=DecKR_DBAdmin;Password=DB_Admin" tags="SqlConnectionString">
+  <parameter name="DBConnectionString-Web.config Connection String" description="DBConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=deckr.database.windows.net;Initial Catalog=DeCKR_Database;Persist Security Info=True;User ID=DeCKR_DBAdmin;Password=DB_Admin" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\krishnak\\Source\\Repos\\krishnteja\\deckrApp\\server\\WebAPI\\DeCKR_WebAPI\\DeCKR_WebAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBConnectionString']/@connectionString" />
   </parameter>
 </parameters>

@@ -39,7 +39,8 @@ namespace DeCKR_WebAPI.Models
                         user.Name = Convert.ToString(dr["Name"]);
                         user.JobRole = Convert.ToString(dr["JobRoleName"]);
                         user.Department = Convert.ToString(dr["DepartmentName"]);
-                        user.EmailAddress= Convert.ToString(dr["EmailAddress"]);                      
+                        user.EmailAddress= Convert.ToString(dr["EmailAddress"]);
+                        user.UserType = Convert.ToString(dr["UserType"]);
                     }
 
                     cmd.Parameters.Clear();
@@ -47,6 +48,42 @@ namespace DeCKR_WebAPI.Models
                 }
             }
             catch(Exception ex)
+            {
+                throw ex;
+            }
+
+            return user;
+        }
+
+        public UserModel GetUserByUserName(string userName)
+        {
+            UserModel user = new UserModel();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString))
+                {
+                    conn.Open();
+                    string sqlStr = "GetUserByName";
+                    SqlCommand cmd = new SqlCommand(sqlStr, conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.Add(new SqlParameter("@userName", userName));
+                    SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.Default);
+                    while (dr.Read())
+                    {
+                        user.EmployeeID = Convert.ToInt32(dr["EmployeeID"]);
+                        user.Name = Convert.ToString(dr["Name"]);
+                        user.JobRole = Convert.ToString(dr["JobRoleName"]);
+                        user.Department = Convert.ToString(dr["DepartmentName"]);
+                        user.EmailAddress = Convert.ToString(dr["EmailAddress"]);
+                        user.UserType = Convert.ToString(dr["UserType"]);
+                    }
+
+                    cmd.Parameters.Clear();
+                    cmd.Dispose();
+                }
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -1331,6 +1368,78 @@ namespace DeCKR_WebAPI.Models
                 throw ex;
             }
             return settings;
+        }
+
+        public bool SetUserSettings(UserSettingsRequest userSettings)
+        {
+            List<SettingsModel> settings = userSettings.userSettings;
+            int EmployeeID = userSettings.EmployeeID;
+
+            bool result = false;
+            try
+            {
+                foreach (SettingsModel setting in settings)
+                {
+                    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString))
+                    {
+                        conn.Open();
+                        string sqlStr = "SetUserSettings";
+                        SqlCommand cmd = new SqlCommand(sqlStr, conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.Add(new SqlParameter("@EmployeeID", EmployeeID));
+                        cmd.Parameters.Add(new SqlParameter("@SettingID", setting.SettingID));
+                        cmd.Parameters.Add(new SqlParameter("@ModuleID", setting.ModuleID));
+                        cmd.Parameters.Add(new SqlParameter("@SettingValue", setting.SettingValue));
+                        cmd.ExecuteNonQuery();
+                        result = true;
+                        cmd.Parameters.Clear();
+                        cmd.Dispose();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result;
+        }
+
+        public bool SetDepartmentSettings(DepartmentSettingsRequest departmentSettings)
+        {
+            List<SettingsModel> settings = departmentSettings.departmentSettings;
+            int DepartmentID = departmentSettings.DepartmentID;
+
+            bool result = false;
+            try
+            {
+                foreach (SettingsModel setting in settings)
+                {
+                    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString))
+                    {
+                        conn.Open();
+                        string sqlStr = "SetDepartmentSettings";
+                        SqlCommand cmd = new SqlCommand(sqlStr, conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.Add(new SqlParameter("@DepartmentID", DepartmentID));
+                        cmd.Parameters.Add(new SqlParameter("@SettingID", setting.SettingID));
+                        cmd.Parameters.Add(new SqlParameter("@ModuleID", setting.ModuleID));
+                        cmd.Parameters.Add(new SqlParameter("@SettingValue", setting.SettingValue));
+                        cmd.ExecuteNonQuery();
+                        result = true;
+                        cmd.Parameters.Clear();
+                        cmd.Dispose();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result;
         }
     }
 

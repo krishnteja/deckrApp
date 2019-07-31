@@ -171,10 +171,11 @@ C:\Users\krishnak\Source\Repos\krishnteja\deckrApp\server\WebAPI\DeCKR_WebAPI\De
 C:\Users\krishnak\Source\Repos\krishnteja\deckrApp\server\WebAPI\DeCKR_WebAPI\DeCKR_WebAPI\bin\Microsoft.IdentityModel.Logging.dll
 C:\Users\krishnak\Source\Repos\krishnteja\deckrApp\server\WebAPI\DeCKR_WebAPI\DeCKR_WebAPI\bin\Microsoft.IdentityModel.Tokens.dll
 C:\Users\krishnak\Source\Repos\krishnteja\deckrApp\server\WebAPI\DeCKR_WebAPI\DeCKR_WebAPI\bin\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\krishnak\Source\Repos\krishnteja\deckrApp\server\WebAPI\DeCKR_WebAPI\DeCKR_WebAPI\bin\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\krishnak\Source\Repos\krishnteja\deckrApp\server\WebAPI\DeCKR_WebAPI\DeCKR_WebAPI\bin\Microsoft.IdentityModel.Logging.xml
 C:\Users\krishnak\Source\Repos\krishnteja\deckrApp\server\WebAPI\DeCKR_WebAPI\DeCKR_WebAPI\bin\Microsoft.IdentityModel.Tokens.xml
 C:\Users\krishnak\Source\Repos\krishnteja\deckrApp\server\WebAPI\DeCKR_WebAPI\DeCKR_WebAPI\bin\System.IdentityModel.Tokens.Jwt.xml
 C:\Users\krishnak\Source\Repos\krishnteja\deckrApp\server\WebAPI\DeCKR_WebAPI\DeCKR_WebAPI\bin\SendGrid.dll
 C:\Users\krishnak\Source\Repos\krishnteja\deckrApp\server\WebAPI\DeCKR_WebAPI\DeCKR_WebAPI\bin\SendGrid.pdb
 C:\Users\krishnak\Source\Repos\krishnteja\deckrApp\server\WebAPI\DeCKR_WebAPI\DeCKR_WebAPI\bin\SendGrid.xml
+C:\Users\krishnak\Source\Repos\krishnteja\deckrApp\server\WebAPI\DeCKR_WebAPI\DeCKR_WebAPI\bin\Microsoft.Owin.Cors.dll
+C:\Users\krishnak\Source\Repos\krishnteja\deckrApp\server\WebAPI\DeCKR_WebAPI\DeCKR_WebAPI\bin\Microsoft.Owin.Cors.xml

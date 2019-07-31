@@ -13,7 +13,7 @@ namespace DeCKR_WebAPI.Controllers
     /// <summary>
     /// Home Controller class
     /// </summary>
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+   // [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class HomeController : Controller
     {        
         public ActionResult Index()

@@ -16,7 +16,7 @@ namespace DeCKR_WebAPI.Controllers
     /// <summary>
     /// Department Controller class
     /// </summary>
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+  //  [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class DepartmentController : ApiController
     {
         DomainModel model = new DomainModel();
